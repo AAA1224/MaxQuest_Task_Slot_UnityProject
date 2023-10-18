@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Button - Idle Pulse (Big)
+  m_Controller: {fileID: 9100000, guid: 5b7d067d668206147b5a108641746858, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 2363578734327848780, guid: 5b7d067d668206147b5a108641746858, type: 2}
+    m_OverrideClip: {fileID: 2363578734327848780, guid: 5b7d067d668206147b5a108641746858, type: 2}
+  - m_OriginalClip: {fileID: 5154792822984109987, guid: 5b7d067d668206147b5a108641746858, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 57d560d9ca2632942ada3ea372d11583, type: 2}
+  - m_OriginalClip: {fileID: 3191953595243188881, guid: 5b7d067d668206147b5a108641746858, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 60ade637240354a43b0644ae46fe431f, type: 2}
+  - m_OriginalClip: {fileID: -3449609236606219217, guid: 5b7d067d668206147b5a108641746858, type: 2}
+    m_OverrideClip: {fileID: -3449609236606219217, guid: 5b7d067d668206147b5a108641746858, type: 2}
+  - m_OriginalClip: {fileID: 1033423823908679702, guid: 5b7d067d668206147b5a108641746858, type: 2}
+    m_OverrideClip: {fileID: 1033423823908679702, guid: 5b7d067d668206147b5a108641746858, type: 2}

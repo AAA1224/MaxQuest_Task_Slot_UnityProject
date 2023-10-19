@@ -1627,9 +1627,9 @@ MonoBehaviour:
   socketControllerPrefab: {fileID: 133906, guid: cbe5119cf3bbba94aabd5ace819dae01, type: 3}
   socket: {fileID: 0}
   settings:
-    url: localhost
-    port: 3000
-    sslEnabled: 0
+    url: testgameserver-5f297fad296d.herokuapp.com
+    port: 0
+    sslEnabled: 1
     reconnectTime: 500
     timeToDropAck: 250
     pingTimeout: 5

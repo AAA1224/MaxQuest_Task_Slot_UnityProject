@@ -1,0 +1,132 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#unity-container {
+  position: absolute;
+}
+
+#unity-container.unity-desktop {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  overflow: hidden;
+}
+
+#unity-container.unity-mobile {
+  width: 100%;
+  height: 100%;
+}
+
+#unity-canvas {
+  background: black;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.unity-mobile #unity-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+#unity-loading-bar {
+  position: absolute;
+  left: 50%;
+  top: 45%;
+  transform: translate(-50%, -50%);
+  display: none;
+}
+
+#unity-logo {
+  width: 360px;
+  height: 360px;
+  background: url('Logo.png') no-repeat center;
+  background-size: cover;
+}
+
+#unity-progress-bar-empty {
+  width: 280px;
+  height: 26px;
+  margin-top: 10px;
+  background: url('progress-bar-empty-light.png');
+  background-size: cover;
+  margin: auto;
+  position: relative;
+}
+
+#unity-progress-bar-full {
+  width: 0%;
+  height: 26px;
+  margin-top: 10px;
+  background: url('progress-bar-full-light.png') no-repeat center;
+  border-radius: 5px;
+}
+
+#unity-progress-bar-frame {
+  height: 26px;
+  position: absolute;
+  width: 100%;
+  top: 0px;
+  background: url('progress-bar-empty-frame.png') no-repeat center;
+  background-size: cover;
+}
+
+#unity-footer {
+  position: relative;
+}
+
+.unity-mobile #unity-footer {
+  display: none;
+}
+
+#unity-webgl-logo {
+  float: left;
+  width: 204px;
+  height: 38px;
+  background: url('webgl-logo.png') no-repeat center;
+}
+
+#unity-build-title {
+  float: right;
+  margin-right: 10px;
+  line-height: 38px;
+  font-family: arial;
+  font-size: 18px;
+}
+
+#unity-fullscreen-button {
+  float: right;
+  width: 38px;
+  height: 38px;
+  background: url('fullscreen-button.png') no-repeat center;
+}
+
+#unity-mobile-warning {
+  position: absolute;
+  left: 50%;
+  top: 5%;
+  transform: translate(-50%);
+  background: white;
+  padding: 10px;
+  display: none;
+}
+
+#loading {
+  margin-top: -64px;
+}
+
+#loading img {
+  margin: 10px;
+  font-family: cursive;
+  color: white;
+
+  height: 20px;
+}
+
+#logoStudio {
+    position: fixed;
+    left: 55px;
+    top: 41px;
+    width: 182px;
+}

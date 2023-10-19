@@ -209,6 +209,14 @@ public class SlotManager : MonoBehaviour
         Init();
 
     }
+
+    private void AddLineIfRule(bool rule, params Vector3[] positions)
+    {
+        if (rule)
+        {
+            linesToDraw.Add(positions);
+        }
+    }
     /// <summary>
     /// Handles the server response for checking results with paylines. Parses payline rules and triggers animations.
     /// </summary>
@@ -232,97 +240,44 @@ public class SlotManager : MonoBehaviour
             bool rule6 = (bool)paylines["rule6"];
             bool rule7 = (bool)paylines["rule7"];
 
+            // Inside your OnCheckResultWithPayline function:
+            AddLineIfRule(rule1, new Vector3[] { new Vector3(-3, 0, 0), new Vector3(0, 0, 0), new Vector3(3, 0, 0) });
+            AddLineIfRule(rule2, new Vector3[] { new Vector3(-3, 3, 0), new Vector3(0, 3, 0), new Vector3(3, 3, 0) });
+            AddLineIfRule(rule3, new Vector3[] { new Vector3(-3, -3, 0), new Vector3(0, -3, 0), new Vector3(3, -3, 0) });
+            AddLineIfRule(rule4, new Vector3[] { new Vector3(-3, 3, 0), new Vector3(0, 0, 0), new Vector3(3, 3, 0) });
+            AddLineIfRule(rule5, new Vector3[] { new Vector3(-3, -3, 0), new Vector3(0, 0, 0), new Vector3(3, -3, 0) });
+            AddLineIfRule(rule6, new Vector3[] { new Vector3(-3, 0, 0), new Vector3(0, 3, 0), new Vector3(3, 0, 0) });
+            AddLineIfRule(rule7, new Vector3[] { new Vector3(-3, 0, 0), new Vector3(0, -3, 0), new Vector3(3, 0, 0) });
 
-            // Check if "rule6" is an array of integers
             if (paylines["rule8"] != null && paylines["rule8"].IsArray)
             {
                 JsonData rule8Data = paylines["rule8"];
                 List<int> rule8 = new List<int>();
 
+                // Create a dictionary to map intValue to the index of displayedGameObjects
+                Dictionary<int, int> intValueToIndex = new Dictionary<int, int>();
+
+                for (int i = 0; i < displayedGameObjects.Count; i++)
+                {
+                    intValueToIndex[i] = i;
+                }
+
                 foreach (JsonData item in rule8Data)
                 {
-                    // Parse each element in "rule8" as an integer and add it to the list
-                    int intValue;
-                    if (int.TryParse(item.ToString(), out intValue))
+                    // Parse each element in "rule8" as an integer
+                    if (int.TryParse(item.ToString(), out int intValue))
                     {
-                        rule8.Add(intValue);
-                        if (intValue == 0)
+                        // Check if intValue is in the dictionary
+                        if (intValueToIndex.ContainsKey(intValue))
                         {
-                            displayedGameObjects[0].GetComponent<Animator>().enabled = true;
-                        }
-                        else if (intValue == 1)
-                        {
-                            displayedGameObjects[1].GetComponent<Animator>().enabled = true;
-                        }
-                        else if (intValue == 2)
-                        {
-                            displayedGameObjects[2].GetComponent<Animator>().enabled = true;
-                        }
-                        else if (intValue == 3)
-                        {
-                            displayedGameObjects[3].GetComponent<Animator>().enabled = true;
-                        }
-                        else if (intValue == 4)
-                        {
-                            displayedGameObjects[4].GetComponent<Animator>().enabled = true;
-                        }
-                        else if (intValue == 5)
-                        {
-                            displayedGameObjects[5].GetComponent<Animator>().enabled = true;
-                        }
-                        else if (intValue == 6)
-                        {
-                            displayedGameObjects[6].GetComponent<Animator>().enabled = true;
-                        }
-                        else if (intValue == 7)
-                        {
-                            displayedGameObjects[7].GetComponent<Animator>().enabled = true;
-                        }
-                        else if (intValue == 8)
-                        {
-                            displayedGameObjects[8].GetComponent<Animator>().enabled = true;
+                            int index1 = intValueToIndex[intValue];
+                            displayedGameObjects[index1].GetComponent<Animator>().enabled = true;
                         }
                     }
                 }
 
-            }
 
-
-
-            // Define line positions based on rules
-            if (rule1)
-            {
-                linesToDraw.Add(new Vector3[] { new Vector3(-3, 0, 0), new Vector3(0, 0, 0), new Vector3(3, 0, 0) });
             }
-
-            if (rule2)
-            {
-                linesToDraw.Add(new Vector3[] { new Vector3(-3, 3, 0), new Vector3(0, 3, 0), new Vector3(3, 3, 0) });
-            }
-
-            if (rule3)
-            {
-                linesToDraw.Add(new Vector3[] { new Vector3(-3, -3, 0), new Vector3(0, -3, 0), new Vector3(3, -3, 0) });
-            }
-
-            if (rule4)
-            {
-                linesToDraw.Add(new Vector3[] { new Vector3(-3, 3, 0), new Vector3(0, 0, 0), new Vector3(3, 3, 0) });
-            }
-
-            if (rule5)
-            {
-                linesToDraw.Add(new Vector3[] { new Vector3(-3, -3, 0), new Vector3(0, 0, 0), new Vector3(3, -3, 0) });
-            }
-            if (rule6)
-            {
-                linesToDraw.Add(new Vector3[] { new Vector3(-3, 0, 0), new Vector3(0, 3, 0), new Vector3(3, 0, 0) });
-            }
-            if (rule7)
-            {
-                linesToDraw.Add(new Vector3[] { new Vector3(-3, 0, 0), new Vector3(0, -3, 0), new Vector3(3, 0, 0) });
-            }
-
             // Draw all lines accumulated in the list using separate LineRenderer components
             int index = 0;
             foreach (Vector3[] positions in linesToDraw)

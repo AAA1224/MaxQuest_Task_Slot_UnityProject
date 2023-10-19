@@ -8,10 +8,5 @@ public static class Constant
     public static string checkResultWithPayline = "CHECK_RESULT_WITH_PAYLINE";
 
 
-    // Server
-    
-    public static string imageserver = "https://n5matix.com/matix_admin/upload/";
-    public static string entry = "entry/";
-    public static string intermediate = "intermediate/";
-    public static string hard = "hard/";
+
 }

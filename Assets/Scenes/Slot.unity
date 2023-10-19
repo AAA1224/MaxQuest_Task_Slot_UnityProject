@@ -1850,11 +1850,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   connections: {fileID: 1090754283}
-  ConnectingPanel: {fileID: 1618060572}
+  connectingPanel: {fileID: 1618060572}
   slotSymbolPrefab: {fileID: 2806817655304981914, guid: 9d55c8c30af8eab43a3e684c8c32d448, type: 3}
   spinButton: {fileID: 1189974203}
   freespinsWindow: {fileID: 1024179132}
   freespinsCount: {fileID: 358383113}
+  spinDuration: 3
+  minSteps: 30
+  maxSteps: 40
+  reelDelay: 1
   reels:
   - {fileID: 1452841526}
   - {fileID: 556740063}
@@ -1877,10 +1881,6 @@ MonoBehaviour:
   - {fileID: 1053205491}
   - {fileID: 2113833015}
   - {fileID: 1827923798}
-  spinDuration: 3
-  minSteps: 30
-  maxSteps: 40
-  reelDelay: 1
 --- !u!1 &1272000752
 GameObject:
   m_ObjectHideFlags: 0
